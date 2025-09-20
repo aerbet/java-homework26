@@ -1,9 +1,11 @@
 package models;
 
+import utils.Sortable;
+
 import java.util.Comparator;
 import java.util.List;
 
-public class MoviesList {
+public class MoviesList implements Sortable {
     private List<Movie> movies;
 
     public MoviesList() {}
@@ -12,21 +14,18 @@ public class MoviesList {
         return movies;
     }
 
-    public void sortByYear() {
-        getMovies().sort(Comparator.comparing(Movie::getYear));
-
-        System.out.printf("%nMoviesList sorted by year: %n%s", getMovies());
+    @Override
+    public void sortByYear(List<Movie> movies) {
+        movies.sort(Comparator.comparing(Movie::getYear));
     }
 
-    public void sortByName() {
-        getMovies().sort(Comparator.comparing(Movie::getName));
-
-        System.out.printf("%nMoviesList sorted by name: %n%s", getMovies());
+    @Override
+    public void sortByName(List<Movie> movies) {
+        movies.sort(Comparator.comparing(Movie::getName));
     }
 
-    public void sortByDirector() {
-        getMovies().sort(Comparator.comparing(movie -> movie.getDirector().getFullName()));
-
-        System.out.printf("%nMoviesList sorted by director: %n%s", getMovies());
+    @Override
+    public void sortByDirector(List<Movie> movies) {
+        movies.sort(Comparator.comparing(movie -> movie.getDirector().getFullName()));
     }
 }
