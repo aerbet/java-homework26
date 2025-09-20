@@ -16,7 +16,7 @@ public class Main {
         wrapper.sortByYear(movies);
 //        movies.forEach(System.out::println);
 
-        wrapper.searchByName("h");
+        System.out.println(wrapper.searchByName("harr"));
 
 /*        while (true) {
             System.out.printf("Поиск по названию фильма: ");

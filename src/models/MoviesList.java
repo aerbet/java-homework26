@@ -1,5 +1,6 @@
 package models;
 
+import utils.Searchable;
 import utils.Sortable;
 
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
-public class MoviesList implements Sortable {
+public class MoviesList implements Sortable, Searchable {
     private List<Movie> movies;
 
     public MoviesList() {}
@@ -16,7 +17,8 @@ public class MoviesList implements Sortable {
         return movies;
     }
 
-    public void searchByName(String name){
+    @Override
+    public List<String> searchByName(String name) {
         List<String> movieNames = new ArrayList<>();
 
         for (Movie movie : movies) {
@@ -25,7 +27,7 @@ public class MoviesList implements Sortable {
             }
         }
 
-        System.out.println(movieNames);
+        return movieNames;
     }
 
     @Override
