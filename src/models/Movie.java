@@ -1,6 +1,7 @@
 package models;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Movie {
     private String name;
@@ -49,5 +50,22 @@ public class Movie {
 
     public void setCast(List<Cast> cast) {
         this.cast = cast;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%nName: %s%nYear: %s%nDescription: %s%nDirector: %s%nCast: %s", name, year, description, director.getFullName(), cast);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Movie movie = (Movie) o;
+        return Objects.equals(name, movie.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(name);
     }
 }

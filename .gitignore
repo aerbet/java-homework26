@@ -23,6 +23,7 @@ bin/
 /.nb-gradle/
 .idea
 homework26.iml
+java-homework26.iml
 
 ### VS Code ###
 .vscode/

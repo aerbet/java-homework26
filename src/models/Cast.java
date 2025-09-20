@@ -21,4 +21,9 @@ public class Cast {
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%nActor: %s %nRole: %S%n", fullName, role);
+    }
 }
