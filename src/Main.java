@@ -14,21 +14,23 @@ public class Main {
         List<Movie> movies = wrapper.getMovies();
 
         wrapper.sortByYear(movies);
-        movies.forEach(System.out::println);
+//        movies.forEach(System.out::println);
 
-//            while (true) {
-//                System.out.printf("Поиск по названию фильма: ");
-//                String name = new Scanner(System.in).nextLine();
-//
-//                List<String> movieNames = new ArrayList<>();
-//
-//                for (Movie movie : movies) {
-//                    if (movie.getName().toLowerCase().contains(name.toLowerCase())) {
-//                        movieNames.add(movie.getName().toLowerCase());
-//                    }
-//                }
-//
-//                System.out.println(movieNames);
-//            }
+        wrapper.searchByName("h");
+
+/*        while (true) {
+            System.out.printf("Поиск по названию фильма: ");
+            String name = new Scanner(System.in).nextLine();
+
+            List<String> movieNames = new ArrayList<>();
+
+            for (Movie movie : movies) {
+                if (movie.getName().toLowerCase().contains(name.toLowerCase())) {
+                    movieNames.add(movie.getName().toLowerCase());
+                }
+            }
+
+            System.out.println(movieNames);
+        }*/
     }
 }

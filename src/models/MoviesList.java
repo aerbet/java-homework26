@@ -2,8 +2,10 @@ package models;
 
 import utils.Sortable;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Scanner;
 
 public class MoviesList implements Sortable {
     private List<Movie> movies;
@@ -12,6 +14,18 @@ public class MoviesList implements Sortable {
 
     public List<Movie> getMovies() {
         return movies;
+    }
+
+    public void searchByName(String name){
+        List<String> movieNames = new ArrayList<>();
+
+        for (Movie movie : movies) {
+            if (movie.getName().toLowerCase().contains(name.toLowerCase())) {
+                movieNames.add(movie.getName().toLowerCase());
+            }
+        }
+
+        System.out.println(movieNames);
     }
 
     @Override
