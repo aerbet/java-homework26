@@ -13,10 +13,9 @@ public class Main {
         MoviesList wrapper = FileUtil.readMoviesFile(path);
         List<Movie> movies = wrapper.getMovies();
 
-        wrapper.sortByYear(movies);
-//        movies.forEach(System.out::println);
+        movies.forEach(System.out::println);
 
-        System.out.println(wrapper.searchByName("harr"));
+        System.out.println(wrapper.searchByName("AVE"));
 
 /*        while (true) {
             System.out.printf("Поиск по названию фильма: ");

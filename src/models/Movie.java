@@ -54,7 +54,20 @@ public class Movie {
 
     @Override
     public String toString() {
-        return String.format("%nName: %s%nYear: %s%nDescription: %s%nDirector: %s%nCast: %s", name, year, description, director.getFullName(), cast);
+        String castInfo = "";
+        for (Cast c : cast) {
+            castInfo += String.format("      %s%n", c);
+        }
+
+        return String.format(
+                "Movie%n" +
+                        "name: %s%n" +
+                        "year: %d%n" +
+                        "description: %s%n" +
+                        "director: %s%n" +
+                        "cast:%n%s",
+                name, year, description, director.getFullName(), castInfo
+        );
     }
 
     @Override

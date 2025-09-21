@@ -24,6 +24,6 @@ public class Cast {
 
     @Override
     public String toString() {
-        return String.format("%nActor: %s %nRole: %S%n", fullName, role);
+        return String.format("actor: %-20s | role: %s", getFullName(), getRole());
     }
 }
