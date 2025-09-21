@@ -10,16 +10,8 @@ public class Cast {
         return role;
     }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
-
     public String getFullName() {
         return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
     }
 
     @Override

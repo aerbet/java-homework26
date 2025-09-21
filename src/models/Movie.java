@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -16,40 +17,30 @@ public class Movie {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getYear() {
         return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public Director getDirector() {
         return director;
     }
 
-    public void setDirector(Director director) {
-        this.director = director;
+    public List<String> getActorName() {
+        List<String> names = new ArrayList<>();
+
+        for (Cast actor : cast) {
+            names.add(actor.getFullName());
+        }
+
+        return names;
     }
 
     public List<Cast> getCast() {
         return cast;
-    }
-
-    public void setCast(List<Cast> cast) {
-        this.cast = cast;
     }
 
     @Override

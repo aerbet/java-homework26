@@ -15,7 +15,20 @@ public class Main {
 
         movies.forEach(System.out::println);
 
-        System.out.println(wrapper.searchByName("AVE"));
+        System.out.println(wrapper.searchByName("harr"));
+
+        Map<List<String>, String> mapWrapper = new HashMap<>();
+        String fmt = "%s %s";
+
+        for (Movie movie : movies) {
+            mapWrapper.put(movie.getActorName(), movie.getName());
+        }
+
+        for (Map.Entry<List<String>, String> entry : mapWrapper.entrySet()) {
+            String msg = String.format(fmt, entry.getKey(), entry.getValue());
+
+            System.out.println(msg);
+        }
 
 /*        while (true) {
             System.out.printf("Поиск по названию фильма: ");
