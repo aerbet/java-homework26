@@ -1,3 +1,4 @@
+import models.ActorMovieRole;
 import models.Movie;
 import models.MoviesList;
 import utils.FileUtil;
@@ -17,19 +18,19 @@ public class Main {
 
         System.out.println(wrapper.searchByName("harr"));
 
-        Map<List<String>, String> mapWrapper = new HashMap<>();
-        String fmt = "%s %s";
+        String fmt = "%nФильмы в которых снимался(ась): %s";
+        System.out.printf(fmt, wrapper.searchActorMovies("Robert Downey Jr."));
 
-        for (Movie movie : movies) {
-            mapWrapper.put(movie.getActorName(), movie.getName());
+        String fmt2 = "%nФильмы которые снимал: %s";
+        System.out.printf(fmt2, wrapper.searchDirectorMovies("Peter Jackson"));
+
+        String fmt3 = "%nФильм по введеному году выпуска: %s";
+        System.out.printf(fmt3, wrapper.searchYearMovies(2010));
+
+        List<ActorMovieRole> roles = wrapper.searchActorMoviesAndRole("Orlando Bloom");
+        for (ActorMovieRole role : roles) {
+            System.out.println("Фильм: " + role.getMovieName() + "Роль: " + role.getRole());
         }
-
-        for (Map.Entry<List<String>, String> entry : mapWrapper.entrySet()) {
-            String msg = String.format(fmt, entry.getKey(), entry.getValue());
-
-            System.out.println(msg);
-        }
-
 /*        while (true) {
             System.out.printf("Поиск по названию фильма: ");
             String name = new Scanner(System.in).nextLine();

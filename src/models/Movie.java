@@ -29,16 +29,6 @@ public class Movie {
         return director;
     }
 
-    public List<String> getActorName() {
-        List<String> names = new ArrayList<>();
-
-        for (Cast actor : cast) {
-            names.add(actor.getFullName());
-        }
-
-        return names;
-    }
-
     public List<Cast> getCast() {
         return cast;
     }

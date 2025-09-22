@@ -9,10 +9,6 @@ public class Director {
         return fullName;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
     @Override
     public String toString() {
         return fullName;
