@@ -19,6 +19,33 @@ public class MoviesList implements Sortable, Searchable {
         return movies;
     }
 
+    public List<String> getAllActorsWithMoviesAndRoles() {
+        Map<String, Set<String>> actorMoviesRolesMap = new HashMap<>();
+
+        for (Movie movie : movies) {
+            for (Cast cast : movie.getCast()) {
+                String actorName = cast.getFullName().trim();
+                String movieAndRole = movie.getName() + " (" + cast.getRole().trim() + ")";
+
+                actorMoviesRolesMap
+                        .computeIfAbsent(actorName, k -> new HashSet<>())
+                        .add(movieAndRole);
+            }
+        }
+
+        List<String> result = new ArrayList<>();
+        for (Map.Entry<String, Set<String>> entry : actorMoviesRolesMap.entrySet()) {
+            String actorName = entry.getKey();
+            String moviesAndRoles = String.join(", ", entry.getValue());
+            result.add(actorName + ":\n" + "Movie and role: " + moviesAndRoles);
+
+        }
+
+        result.sort(Comparator.naturalOrder());
+
+        return result;
+    }
+
     @Override
     public List<ActorMovieRole> searchActorMoviesAndRole(String name) {
         for (Movie movie : movies) {
@@ -29,7 +56,7 @@ public class MoviesList implements Sortable, Searchable {
             }
         }
 
-        return roleAndMoviesMap.getOrDefault(name, new ArrayList<>());
+        return roleAndMoviesMap.getOrDefault(name.toLowerCase().trim(), new ArrayList<>());
     }
 
     @Override

@@ -3,6 +3,7 @@ package models;
 public class ActorMovieRole {
     String movieName;
     String role;
+
     public ActorMovieRole(String movieName, String role) {
         this.movieName = movieName;
         this.role = role;
@@ -18,6 +19,6 @@ public class ActorMovieRole {
 
     @Override
     public String toString() {
-        return movieName + " (" + role + ")";
+        return movieName + role;
     }
 }

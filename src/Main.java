@@ -14,36 +14,26 @@ public class Main {
         MoviesList wrapper = FileUtil.readMoviesFile(path);
         List<Movie> movies = wrapper.getMovies();
 
-        movies.forEach(System.out::println);
+//        wrapper.sortByYear(movies);
+//        wrapper.sortByName(movies);
+//        wrapper.sortByDirector(movies);
 
-        System.out.println(wrapper.searchByName("harr"));
+        MovieConsole.printMovies(movies);
 
-        String fmt = "%nФильмы в которых снимался(ась): %s";
-        System.out.printf(fmt, wrapper.searchActorMovies("Robert Downey Jr."));
+        MovieConsole.printSearchByName(wrapper.searchByName("harr"));
 
-        String fmt2 = "%nФильмы которые снимал: %s";
-        System.out.printf(fmt2, wrapper.searchDirectorMovies("Peter Jackson"));
+        MovieConsole.printActorMovies("Robert Downey Jr.", wrapper.searchActorMovies("Robert Downey Jr."));
 
-        String fmt3 = "%nФильм по введеному году выпуска: %s";
-        System.out.printf(fmt3, wrapper.searchYearMovies(2010));
+        MovieConsole.printDirectorMovies("Peter Jackson", wrapper.searchDirectorMovies("Peter Jackson"));
 
-        List<ActorMovieRole> roles = wrapper.searchActorMoviesAndRole("Orlando Bloom");
-        for (ActorMovieRole role : roles) {
-            System.out.println("Фильм: " + role.getMovieName() + "Роль: " + role.getRole());
-        }
-/*        while (true) {
-            System.out.printf("Поиск по названию фильма: ");
-            String name = new Scanner(System.in).nextLine();
+        MovieConsole.printYearMovies(2010, wrapper.searchYearMovies(2010));
 
-            List<String> movieNames = new ArrayList<>();
+        List<ActorMovieRole> roles = wrapper.searchActorMoviesAndRole("Robert Downey Jr.");
+        MovieConsole.printActorRoles("Robert Downey Jr.", roles);
 
-            for (Movie movie : movies) {
-                if (movie.getName().toLowerCase().contains(name.toLowerCase())) {
-                    movieNames.add(movie.getName().toLowerCase());
-                }
-            }
+        List<String> allActorInfo = wrapper.getAllActorsWithMoviesAndRoles();
+        MovieConsole.printAllActorsWithMoviesAndRoles(allActorInfo);
 
-            System.out.println(movieNames);
-        }*/
+        MovieConsole.printMovies(movies);
     }
 }
