@@ -44,6 +44,7 @@ public class MovieConsole {
         print("===== Все актёры с фильмами и ролями =====");
         for (String actorInfo : allActorInfo) {
             print(actorInfo);
+            print("---------------------------------------------------");
         }
         System.out.println();
     }

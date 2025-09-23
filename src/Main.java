@@ -34,6 +34,9 @@ public class Main {
         List<String> allActorInfo = wrapper.getAllActorsWithMoviesAndRoles();
         MovieConsole.printAllActorsWithMoviesAndRoles(allActorInfo);
 
+//        allActorInfo.sort(Comparator.reverseOrder());
+//        MovieConsole.printAllActorsWithMoviesAndRoles(allActorInfo);
+
         MovieConsole.printMovies(movies);
     }
 }
